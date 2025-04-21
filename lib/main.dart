@@ -3,12 +3,17 @@ import 'package:provider/provider.dart';
 import 'package:tech_taste/data/restaurant_data.dart';
 import 'package:tech_taste/ui/SplashScreen/splash_screen.dart';
 import 'package:tech_taste/ui/core/app.theme.dart';
+import 'package:tech_taste/ui/core/bag_provider.dart';
 
 void main()async  {
    WidgetsFlutterBinding.ensureInitialized();
   RestaurantData restaurantData = RestaurantData();
   await restaurantData.getRestaurants();
-  runApp(MultiProvider(providers: [ChangeNotifierProvider(create: (context){ return restaurantData;})], child: const MyApp(),));
+  runApp(MultiProvider(providers: [ChangeNotifierProvider(create: (context){ return restaurantData;}),
+    ChangeNotifierProvider(create: (context){ return BagProvider();}),
+],
+  
+   child: const MyApp(),));
 }
 
 class MyApp extends StatelessWidget {

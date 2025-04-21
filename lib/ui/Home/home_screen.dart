@@ -4,6 +4,7 @@ import 'package:tech_taste/data/categories_data.dart';
 import 'package:tech_taste/data/restaurant_data.dart';
 import 'package:tech_taste/ui/Home/widgets/categories.dart';
 import 'package:tech_taste/ui/Home/widgets/restaurant.dart';
+import 'package:tech_taste/ui/core/widgets/appbar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,11 +15,7 @@ class HomeScreen extends StatelessWidget {
     ///<qual o tipo do providor que esta esperando>
     return Scaffold(
         drawer: Drawer(),
-        appBar: AppBar(
-          actions: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart)),
-          ],
-        ),
+        appBar:getAppBar(context: context),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: SingleChildScrollView(
@@ -36,7 +33,19 @@ class HomeScreen extends StatelessWidget {
                   'Boas-vindas!',
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
-                TextField(),
+                TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Pesquise por pratos ou restaurantes',
+                    hintStyle: TextStyle(color: Colors.grey),
+                    filled: true,
+                    fillColor: Color(0xFF2A2A2A),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                      borderSide: BorderSide.none,
+                    ),
+                    prefixIcon: Icon(Icons.search, color: Colors.grey),
+                  ),
+                ),
                 Text(
                   'Escolha por categoria',
                   style: TextStyle(color: Colors.white, fontSize: 22),

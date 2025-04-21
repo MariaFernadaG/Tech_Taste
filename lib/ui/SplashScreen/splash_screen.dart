@@ -38,7 +38,7 @@ class SplashScreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(builder: (context) => HomeScreen()),
                         );
-                      }, child: Text('Bora!',style: TextStyle(color: Colors.white, fontSize: 16)),
+                      }, child: Text('Continuar',style: TextStyle(color: Colors.white, fontSize: 16)),
                   ),)
                 ],
               ),
