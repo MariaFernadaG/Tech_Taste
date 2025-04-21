@@ -1,35 +1,36 @@
-// import 'package:flutter/material.dart';
-// import 'package:myapp/model/dish.dart';
+import 'package:flutter/material.dart';
 
-// class BagProvider extends ChangeNotifier {
-//   List<Dish> dishesOnBag = [];
+import 'package:tech_taste/model/dish.dart';
 
-//   addAllDishes(List<Dish> dishes) {
-//     dishesOnBag.addAll(dishes);
-//     notifyListeners();
-//   }
+class BagProvider extends ChangeNotifier {
+  List<Dish> dishesOnBag = [];
 
-//   removeDish(Dish dish) {
-//     dishesOnBag.remove(dish);
-//     notifyListeners();
-//   }
+  addAllDishes(List<Dish> dishes) {
+    dishesOnBag.addAll(dishes);
+    notifyListeners();
+  }
 
-//   clearBag() {
-//     dishesOnBag.clear();
-//     notifyListeners();
-//   }
+  removeDish(Dish dish) {
+    dishesOnBag.remove(dish);
+    notifyListeners();
+  }
 
-//   Map<Dish, int> getMapByAmount() {
-//     Map<Dish, int> mapResult = {};
+  clearBag() {
+    dishesOnBag.clear();
+    notifyListeners();
+  }
 
-//     for (Dish dish in dishesOnBag) {
-//       if (mapResult[dish] == null) {
-//         mapResult[dish] = 1;
-//       } else {
-//         mapResult[dish] = mapResult[dish]! + 1;
-//       }
-//     }
+  Map<Dish, int> getMapByAmount() {
+    Map<Dish, int> mapResult = {};
 
-//     return mapResult;
-//   }
-// }
+    for (Dish dish in dishesOnBag) {
+      if (mapResult[dish] == null) {
+        mapResult[dish] = 1;
+      } else {
+        mapResult[dish] = mapResult[dish]! + 1;
+      }
+    }
+
+    return mapResult;
+  }
+}
